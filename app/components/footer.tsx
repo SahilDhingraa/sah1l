@@ -24,7 +24,7 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://drive.google.com/file/d/1HUzyiG2HgrWvqs1ZOV3edFLlnxz0ozmC/view?usp=sharing"
+            href="https://drive.google.com/file/d/1JLzARQjea-dobgc7CiUp9EmKMQNOknTu/view?usp=sharing"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">resume</p>
@@ -46,7 +46,7 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://x.com/sahildhingraa"
+            href="https://x.com/novoocaiine"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">x (twitter)</p>

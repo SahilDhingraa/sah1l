@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="text-black bg-white dark:text-white dark:bg-black">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="developer portfolio">
+  <title>Sahil Dhingra</title>
+  <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+  
+  <!-- Geist Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    :root {
+      --font-geist-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      --font-geist-mono: 'Courier New', Courier, monospace;
+      --sh-class: #2d5e9d;
+      --sh-identifier: #354150;
+      --sh-sign: #8996a3;
+      --sh-string: #007f7a;
+      --sh-keyword: #e02518;
+      --sh-comment: #a19595;
+      --sh-jsxliterals: #6266d1;
+      --sh-property: #e25a1c;
+      --sh-entity: #e25a1c;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sh-class: #4c97f8;
+        --sh-identifier: white;
+        --sh-keyword: #f47067;
+        --sh-string: #0fa295;
+      }
+      html {
+        color-scheme: dark;
+      }
+    }
+
+    * {
+      font-family: var(--font-geist-sans);
+    }
+
+    html {
+      min-width: 360px;
+    }
+
+    body {
+      font-family: var(--font-geist-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background-color: #47a3f3;
+      color: #fefefe;
+    }
+
+    .prose .anchor {
+      position: absolute;
+      visibility: hidden;
+      text-decoration: none;
+      margin-left: -1em;
+      padding-right: 0.5em;
+      width: 80%;
+      max-width: 700px;
+      cursor: pointer;
+    }
+
+    .anchor:hover {
+      visibility: visible;
+    }
+
+    .prose a {
+      text-decoration: underline;
+      transition: all 0.2s;
+      text-decoration-color: rgb(163 163 163);
+      text-underline-offset: 0.2em;
+      text-decoration-thickness: 0.1em;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .prose a {
+        text-decoration-color: rgb(82 82 82);
+      }
+    }
+
+    .prose .anchor:after {
+      color: rgb(212 212 212);
+      content: '#';
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .prose .anchor:after {
+        color: rgb(64 64 64);
+      }
+    }
+
+    .prose *:hover > .anchor {
+      visibility: visible;
+    }
+
+    .prose pre {
+      background-color: rgb(250 250 250);
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      border: 1px solid rgb(229 229 229);
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .prose pre {
+        background-color: rgb(23 23 23);
+        border-color: rgb(23 23 23);
+      }
+    }
+
+    .prose code {
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.5rem;
+    }
+
+    .prose pre code {
+      padding: 0;
+      border: initial;
+      line-height: 1.5;
+    }
+
+    .prose code span {
+      font-weight: 500;
+    }
+
+    .prose img {
+      margin: 0;
+    }
+
+    .prose p {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: rgb(38 38 38);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .prose p {
+        color: rgb(229 229 229);
+      }
+    }
+
+    .prose h1 {
+      font-size: 2.25rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .prose h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .prose h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .prose h4 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .prose strong {
+      font-weight: 500;
+    }
+
+    .prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+
+    .prose ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+    }
+
+    .prose > :first-child {
+      margin-top: 1.25em !important;
+      margin-bottom: 1.25em !important;
+    }
+
+    pre::-webkit-scrollbar {
+      display: none;
+    }
+
+    pre {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    input[type='text'],
+    input[type='email'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    table {
+      display: block;
+      max-width: fit-content;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .title {
+      text-wrap: balance;
+    }
+  </style>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Courier New', 'Courier', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+  <main class="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
+    <!-- Navbar -->
+    <aside class="-ml-[8px] mb-16 tracking-tight">
+      <div class="lg:sticky lg:top-20">
+        <nav class="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative" id="nav">
+          <div class="flex flex-row space-x-0 pr-10">
+          </div>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <section>
+      <h1 class="mb-8 text-2xl font-semibold tracking-tighter">
+        Sahil Dhingra
+      </h1>
+      <p class="mb-4 leading-relaxed text-base">
+        I'm a Full Stack Software Engineer specializing in Golang (Go), JavaScript and cloud technologies with hands-on experience building scalable microservices and web applications. At One Healthcare, I architect distributed systems and develop ML recommendation engines while working extensively with Docker, Kubernetes, PostgreSQL, and AWS services. I'm passionate about optimizing database performance, implementing CI/CD pipelines with GitHub Actions, and creating real-time solutions using Node.js, React, WebSockets, and Azure. Currently contributing to open source projects and working toward AWS Cloud Practitioner certification with expertise in containerization, API development, and DevOps practices.
+      </p>
+      <div class="my-8">
+        Location: <span class="px-1 underline">Pune, India</span>
+      </div>
+      <div class="my-8">
+        <div class="flex gap-2">
+          Email: <span class="px-1 underline flex gap-1">
+            <a href="mailto:me@sah1l.com">me@sah1l.com</a>,
+            <a href="mailto:dhingrasd451@gmail.com">dhingrasd451@gmail.com</a>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mb-16">
+      <ul class="font-sm mt-8 grid grid-cols-1 gap-2 text-neutral-600 md:grid-cols-4 dark:text-neutral-300">
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://drive.google.com/file/d/1x2Dh7gaCzlHkcy1-pZKYlMq3f-biRFMm/view?usp=sharing"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">resume</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/sahildhingraa"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">github</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://x.com/novoocaiine"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7 text-nowrap">x (twitter)</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/sahildhingraa"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">linkedin</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://instagram.com/novoocaiine"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">instagram</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://discordapp.com/users/892365061438439505"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">discord</p>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.upwork.com/freelancers/sahildhingraa"
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="ml-2 h-7">upwork</p>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </main>
+</body>
+</html>
+

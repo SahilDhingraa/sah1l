@@ -24,7 +24,7 @@ export default function Footer() {
             className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://drive.google.com/file/d/1enEtXKm7rd4_0GB-uaAyQXzH1VrRvKaq/view?usp=sharing"
+            href="https://drive.google.com/file/d/1nH5nLv6bBkhXG0QgTcr4RpCSjrd6pAtj/view?usp=sharing"
           >
             <ArrowIcon />
             <p className="ml-2 h-7">resume</p>

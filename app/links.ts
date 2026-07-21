@@ -1,6 +1,5 @@
 export const links = {
-  resume:
-    'https://drive.google.com/file/d/1XWp3w-f7uCR0S6gNywoEKg5lLb5bwnD4/view?usp=sharing',
+  resume: '/sahil.pdf',
   github: 'https://github.com/sahildhingraa',
   x: 'https://x.com/novoocaiine',
   twitter: 'https://x.com/novoocaiine',
